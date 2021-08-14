@@ -1,0 +1,78 @@
+"chaosmesh.pod-file.latency":
+  - "system_file"
+"chaosmesh.pod-file.fault":
+  - "system_file"
+"chaosmesh.pod-file.attrOverride":
+  - "system_file"
+"chaosmesh.pod-file.mistake":
+  - "system_file"
+"chaosmesh.container-file.latency":
+  - "system_file"
+"chaosmesh.container-file.fault":
+  - "system_file"
+"chaosmesh.container-file.attrOverride":
+  - "system_file"
+"chaosmesh.container-file.mistake":
+  - "system_file"
+"chaosmesh.pod-dns.error":
+  - "system_network"
+"chaosmesh.pod-dns.random":
+  - "system_network"
+"chaosmesh.pod-jvm.delay":
+  - "java_delay"
+"chaosmesh.pod-jvm.return":
+  - "java_data_tamper"
+"chaosmesh.pod-jvm.script":
+  - "java_custom"
+"chaosmesh.pod-jvm.cfl":
+  - "java_resource_cpu"
+"chaosmesh.pod-jvm.oom":
+  - "java_resource_mem"
+"chaosmesh.pod-jvm.ccf":
+  - "java_resource_mem"
+"chaosmesh.pod-jvm.tce":
+  - "java_exception"
+"chaosmesh.pod-jvm.cpf":
+  - "java_resource"
+"chaosmesh.pod-jvm.tde":
+  - "java_exception"
+"chaosmesh.pod-jvm.tpf":
+  - "java_resource"
+"chaosmesh.pod-network.delay":
+  - "system_network"
+"chaosmesh.pod-network.loss":
+  - "system_network"
+"chaosmesh.pod-network.duplicate":
+  - "system_network"
+"chaosmesh.pod-network.corrupt":
+  - "system_network"
+"chaosmesh.pod-network.bandwidth":
+  - "system_network"
+"chaosmesh.container-network.delay":
+  - "system_network"
+"chaosmesh.container-network.loss":
+  - "system_network"
+"chaosmesh.container-network.duplicate":
+  - "system_network"
+"chaosmesh.container-network.corrupt":
+  - "system_network"
+"chaosmesh.container-network.bandwidth":
+  - "system_network"
+"chaosmesh.pod-pod.pod-kill":
+  - "system_container"
+"chaosmesh.pod-pod.pod-failure":
+  - "system_container"
+"chaosmesh.container-pod.container-kill":
+  - "system_container"
+"chaosmesh.pod-stress.cpu":
+  - "system_cpu"
+"chaosmesh.pod-stress.memory":
+  - "system_mem"
+"chaosmesh.container-stress.cpu":
+  - "system_cpu"
+"chaosmesh.container-stress.memory":
+  - "system_mem"
+"chaosmesh.pod-time.shift":
+  - "system_time"
+"chaosmesh.container-time.shift":
+  - "system_time"

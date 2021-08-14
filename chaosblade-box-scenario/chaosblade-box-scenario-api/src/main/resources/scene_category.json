@@ -59,6 +59,12 @@
         "categoryCode": "system_container",
         "level": 1,
         "supportScope": "[\"host\",\"kubernetes\"]"
+      },
+      {
+        "name": "系统时间",
+        "categoryCode": "system_time",
+        "level": 1,
+        "supportScope": "[\"host\",\"kubernetes\"]"
       }
     ]
   },

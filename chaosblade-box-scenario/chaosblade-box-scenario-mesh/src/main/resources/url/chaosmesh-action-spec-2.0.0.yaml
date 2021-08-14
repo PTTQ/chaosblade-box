@@ -1,0 +1,574 @@
+---
+action: chaosmesh.file.latency
+flags:
+  - name: volumePath
+    desc: VolumePath represents the mount path of injected volume.
+    required: true
+    type: string
+  - name: path
+    desc: Path defines the path of files for injecting I/O chaos action.
+    required: false
+    type: string
+  - name: methods
+    desc: 'Methods defines the I/O methods for injecting I/O chaos action. default: all I/O methods.'
+    required: false
+    type: string[]
+  - name: percent
+    desc: 'Percent defines the percentage of injection errors and provides a number from 0-100. default: 100.'
+    required: false
+    type: int
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+  - name: delay
+    desc: Delay defines the value of I/O chaos action delay. A delay string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix, such as "300ms". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
+    required: true
+    type: string
+---
+action: chaosmesh.file.fault
+flags:
+  - name: volumePath
+    desc: VolumePath represents the mount path of injected volume.
+    required: true
+    type: string
+  - name: path
+    desc: Path defines the path of files for injecting I/O chaos action.
+    required: false
+    type: string
+  - name: methods
+    desc: 'Methods defines the I/O methods for injecting I/O chaos action. default: all I/O methods.'
+    required: false
+    type: string[]
+  - name: percent
+    desc: 'Percent defines the percentage of injection errors and provides a number from 0-100. default: 100.'
+    required: false
+    type: int
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+  - name: errno
+    desc: 'Errno defines the error code that returned by I/O action. refer to: https://www-numi.fnal.gov/offline_software/srt_public_context/WebDocs/Errors/unix_system_errors.html'
+    required: true
+    type: int
+---
+action: chaosmesh.file.attrOverride
+flags:
+  - name: volumePath
+    desc: VolumePath represents the mount path of injected volume.
+    required: true
+    type: string
+  - name: path
+    desc: Path defines the path of files for injecting I/O chaos action.
+    required: false
+    type: string
+  - name: methods
+    desc: 'Methods defines the I/O methods for injecting I/O chaos action. default: all I/O methods.'
+    required: false
+    type: string[]
+  - name: percent
+    desc: 'Percent defines the percentage of injection errors and provides a number from 0-100. default: 100.'
+    required: false
+    type: int
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+  - name: attr.ino
+    desc: Inode number.
+    required: false
+    type: int
+  - name: attr.size
+    desc: File size.
+    required: false
+    type: int
+  - name: attr.blocks
+    desc: File blocks.
+    required: false
+    type: int
+  - name: attr.atime.nsec
+    desc: Last visit time.
+    required: false
+    type: int
+  - name: attr.atime.sec
+    desc: Last visit time.
+    required: false
+    type: int
+  - name: attr.mtime.nsec
+    desc: Last modified time.
+    required: false
+    type: int
+  - name: attr.mtime.sec
+    desc: Last modified time.
+    required: false
+    type: int
+  - name: attr.ctime.nsec
+    desc: Last status change time.
+    required: false
+    type: int
+  - name: attr.ctime.sec
+    desc: Last status change time.
+    required: false
+    type: int
+  - name: attr.kind
+    desc: FileType represents type of a file.
+    required: false
+    type: string
+  - name: attr.perm
+    desc: Decimal representation of file permissions.
+    required: false
+    type: int
+  - name: attr.nlink
+    desc: Number of hard links.
+    required: false
+    type: int
+  - name: attr.uid
+    desc: Owner's user ID.
+    required: false
+    type: int
+  - name: attr.gid
+    desc: Owner's group ID.
+    required: false
+    type: int
+  - name: attr.rdev
+    desc: Device ID.
+    required: false
+    type: int
+---
+action: chaosmesh.file.mistake
+flags:
+  - name: volumePath
+    desc: VolumePath represents the mount path of injected volume.
+    required: true
+    type: string
+  - name: path
+    desc: Path defines the path of files for injecting I/O chaos action.
+    required: false
+    type: string
+  - name: methods
+    desc: 'Methods defines the I/O methods for injecting I/O chaos action. default: all I/O methods.'
+    required: false
+    type: string[]
+  - name: percent
+    desc: 'Percent defines the percentage of injection errors and provides a number from 0-100. default: 100.'
+    required: false
+    type: int
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+  - name: mistake.filling
+    desc: Filling determines what is filled in the miskate data ("zero" or "random").
+    required: true
+    type: string
+  - name: mistake.maxOccurrences
+    desc: There will be [1, MaxOccurrences] segments of wrong data.
+    required: true
+    type: int
+  - name: mistake.maxLength
+    desc: Max length of each wrong data segment in bytes.
+    required: true
+    type: int
+---
+action: chaosmesh.dns.error
+flags:
+  - name: patterns
+    desc: 'Choose which domain names to take effect, support the placeholder ? and wildcard *, or the Specified domain name. Note:      1. The wildcard * must be at the end of the string. For example, chaos-*.org is invalid.      2. if the patterns is empty, will take effect on all the domain names. For example: \t\tThe value is [\"google.com\", \"github.*\", \"chaos-mes?.org\"], \t\twill take effect on \"google.com\", \"github.com\" and \"chaos-mesh.org\".'
+    required: false
+    type: string[]
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.dns.random
+flags:
+  - name: patterns
+    desc: 'Choose which domain names to take effect, support the placeholder ? and wildcard *, or the Specified domain name. Note:      1. The wildcard * must be at the end of the string. For example, chaos-*.org is invalid.      2. if the patterns is empty, will take effect on all the domain names. For example: \t\tThe value is [\"google.com\", \"github.*\", \"chaos-mes?.org\"], \t\twill take effect on \"google.com\", \"github.com\" and \"chaos-mesh.org\".'
+    required: false
+    type: string[]
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.jvm.delay
+flags:
+  - name: target
+    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
+    required: true
+    type: string
+  - name: flags
+    desc: Flags represents the flags of action.
+    required: false
+    type: map[string]string
+  - name: matchers
+    desc: Matchers represents the matching rules for the target.
+    required: false
+    type: map[string]string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.jvm.return
+flags:
+  - name: target
+    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
+    required: true
+    type: string
+  - name: flags
+    desc: Flags represents the flags of action.
+    required: false
+    type: map[string]string
+  - name: matchers
+    desc: Matchers represents the matching rules for the target.
+    required: false
+    type: map[string]string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.jvm.script
+flags:
+  - name: target
+    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
+    required: true
+    type: string
+  - name: flags
+    desc: Flags represents the flags of action.
+    required: false
+    type: map[string]string
+  - name: matchers
+    desc: Matchers represents the matching rules for the target.
+    required: false
+    type: map[string]string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.jvm.cfl
+flags:
+  - name: target
+    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
+    required: true
+    type: string
+  - name: flags
+    desc: Flags represents the flags of action.
+    required: false
+    type: map[string]string
+  - name: matchers
+    desc: Matchers represents the matching rules for the target.
+    required: false
+    type: map[string]string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.jvm.oom
+flags:
+  - name: target
+    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
+    required: true
+    type: string
+  - name: flags
+    desc: Flags represents the flags of action.
+    required: false
+    type: map[string]string
+  - name: matchers
+    desc: Matchers represents the matching rules for the target.
+    required: false
+    type: map[string]string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.jvm.ccf
+flags:
+  - name: target
+    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
+    required: true
+    type: string
+  - name: flags
+    desc: Flags represents the flags of action.
+    required: false
+    type: map[string]string
+  - name: matchers
+    desc: Matchers represents the matching rules for the target.
+    required: false
+    type: map[string]string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.jvm.tce
+flags:
+  - name: target
+    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
+    required: true
+    type: string
+  - name: flags
+    desc: Flags represents the flags of action.
+    required: false
+    type: map[string]string
+  - name: matchers
+    desc: Matchers represents the matching rules for the target.
+    required: false
+    type: map[string]string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.jvm.cpf
+flags:
+  - name: target
+    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
+    required: true
+    type: string
+  - name: flags
+    desc: Flags represents the flags of action.
+    required: false
+    type: map[string]string
+  - name: matchers
+    desc: Matchers represents the matching rules for the target.
+    required: false
+    type: map[string]string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.jvm.tde
+flags:
+  - name: target
+    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
+    required: true
+    type: string
+  - name: flags
+    desc: Flags represents the flags of action.
+    required: false
+    type: map[string]string
+  - name: matchers
+    desc: Matchers represents the matching rules for the target.
+    required: false
+    type: map[string]string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.jvm.tpf
+flags:
+  - name: target
+    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
+    required: true
+    type: string
+  - name: flags
+    desc: Flags represents the flags of action.
+    required: false
+    type: map[string]string
+  - name: matchers
+    desc: Matchers represents the matching rules for the target.
+    required: false
+    type: map[string]string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.network.delay
+flags:
+  - name: delay.latency
+    desc: The length of the delay.
+    required: true
+    type: string
+  - name: delay.correlation
+    desc: Correlation between the length of the delay time and the length of the previous delay.
+    required: false
+    type: string
+  - name: delay.jitter
+    desc: Variation range of delay time.
+    required: false
+    type: string
+  - name: delay.reorder.correlation
+    desc: Correlation between the probability of reordering and the previous time.
+    required: false
+    type: string
+  - name: delay.reorder.reorder
+    desc: Probability of reordering.
+    required: false
+    type: string
+  - name: delay.reorder.gap
+    desc: The distance to push the packet out of order.
+    required: false
+    type: int
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.network.loss
+flags:
+  - name: loss.loss
+    desc: Probability of packet loss.
+    required: true
+    type: string
+  - name: loss.correlation
+    desc: The correlation between the probability of packet loss and whether it occurred in the previous time.
+    required: false
+    type: string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.network.duplicate
+flags:
+  - name: duplicate.duplicate
+    desc: Probability of packet recurrence.
+    required: true
+    type: string
+  - name: duplicate.correlation
+    desc: Correlation between the probability of packet recurrence and whether it occurred in the previous time.
+    required: false
+    type: string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.network.bandwidth
+flags:
+  - name: bandwidth.rate
+    desc: Rate is the speed knob. Allows bps, kbps, mbps, gbps, tbps unit. bps means bytes per second.
+    required: true
+    type: string
+  - name: bandwidth.limit
+    desc: Limit is the number of bytes that can be queued waiting for tokens to become available.
+    required: true
+    type: int
+  - name: bandwidth.buffer
+    desc: Buffer is the maximum amount of bytes that tokens can be available for instantaneously.
+    required: true
+    type: int
+  - name: bandwidth.peakrate
+    desc: Peakrate is the maximum depletion rate of the bucket. The peakrate does not need to be set, it is only necessary if perfect millisecond timescale shaping is required.
+    required: false
+    type: int
+  - name: bandwidth.minburst
+    desc: Minburst specifies the size of the peakrate bucket. For perfect accuracy, should be set to the MTU of the interface.  If a peakrate is needed, but some burstiness is acceptable, this size can be raised. A 3000 byte minburst allows around 3mbit/s of peakrate, given 1000 byte packets.
+    required: false
+    type: int
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.network.corrupt
+flags:
+  - name: corrupt.corrupt
+    desc: Probability of packet errors.
+    required: true
+    type: string
+  - name: corrupt.correlation
+    desc: The correlation between the probability of a packet error and whether it occurred in the previous time.
+    required: false
+    type: string
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.pod.pod-kill
+flags:
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+  - name: gracePeriod
+    desc: GracePeriod is used in pod-kill action. It represents the duration in seconds before the pod should be deleted. Value must be non-negative integer. The default value is zero that indicates delete immediately.
+    required: true
+    type: int
+---
+action: chaosmesh.pod.pod-failure
+flags:
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.pod.container-kill
+flags:
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+---
+action: chaosmesh.stress.cpu
+flags:
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+  - name: stressngStressors
+    desc: StressngStressors defines plenty of stressors just like `Stressors` except that it's an experimental feature and more powerful. You can define stressors in `stress-ng` (see also `man stress-ng`) dialect, however not all of the supported stressors are well tested. It maybe retired in later releases. You should always use `Stressors` to define the stressors and use this only when you want more stressors unsupported by `Stressors`. When both `StressngStressors` and `Stressors` are defined, `StressngStressors` wins.
+    required: false
+    type: string
+  - name: stressors.cpu.workers
+    desc: Workers specifies N workers to apply the stressor. Maximum 8192 workers can run by stress-ng.
+    required: true
+    type: int
+  - name: stressors.cpu.options
+    desc: extend stress-ng options
+    required: false
+    type: string[]
+  - name: stressors.cpu.load
+    desc: Load specifies P percent loading per CPU worker. 0 is effectively a sleep (no load) and 100 is full loading.
+    required: false
+    type: int
+---
+action: chaosmesh.stress.memory
+flags:
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+  - name: stressngStressors
+    desc: StressngStressors defines plenty of stressors just like `Stressors` except that it's an experimental feature and more powerful. You can define stressors in `stress-ng` (see also `man stress-ng`) dialect, however not all of the supported stressors are well tested. It maybe retired in later releases. You should always use `Stressors` to define the stressors and use this only when you want more stressors unsupported by `Stressors`. When both `StressngStressors` and `Stressors` are defined, `StressngStressors` wins.
+    required: false
+    type: string
+  - name: stressors.memory.workers
+    desc: Workers specifies N workers to apply the stressor. Maximum 8192 workers can run by stress-ng.
+    required: true
+    type: int
+  - name: stressors.memory.options
+    desc: extend stress-ng options
+    required: false
+    type: string[]
+  - name: stressors.memory.size
+    desc: Size specifies N bytes consumed per vm worker, default is the total available memory. One can specify the size as % of total available memory or in units of B, KB/KiB, MB/MiB, GB/GiB, TB/TiB.
+    required: false
+    type: string
+---
+action: chaosmesh.time.shift
+flags:
+  - name: duration
+    desc: Duration represents the duration of the chaos action.
+    required: true
+    type: string
+  - name: timeOffset
+    desc: TimeOffset defines the delta time of injected program. It's a possibly signed sequence of decimal numbers, such as "300ms", "-1.5h" or "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
+    required: true
+    type: string
+  - name: clockIds
+    desc: ClockIds defines all affected clock id All available options are ["CLOCK_REALTIME","CLOCK_MONOTONIC","CLOCK_PROCESS_CPUTIME_ID","CLOCK_THREAD_CPUTIME_ID", "CLOCK_MONOTONIC_RAW","CLOCK_REALTIME_COARSE","CLOCK_MONOTONIC_COARSE","CLOCK_BOOTTIME","CLOCK_REALTIME_ALARM", "CLOCK_BOOTTIME_ALARM"] Default value is ["CLOCK_REALTIME"]
+    required: false
+    type: string[]
+  

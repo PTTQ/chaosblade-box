@@ -14,27 +14,28 @@
  * limitations under the License.
  */
 
-package com.alibaba.chaosblade.box.common.enums;
+package com.alibaba.chaosblade.box.scenario.mesh.model;
 
-import com.alibaba.chaosblade.box.common.constants.ChaosConstant;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 /**
- * @author yefei
+ * @author luo rongzhou
  */
-public enum ChaosTools {
+@Data
+@Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
+@NoArgsConstructor
+@AllArgsConstructor
+public class ParamSet {
 
-    CHAOS_BLADE(ChaosConstant.DEFAULT_TOOLS),
-    LITMUS_CHAOS("litmuschaos"),
-    CHAOS_MESH("chaosmesh"),
-    ;
+    private String action;
 
-    private String name;
+    List<Flag> flags;
 
-    ChaosTools(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
 }

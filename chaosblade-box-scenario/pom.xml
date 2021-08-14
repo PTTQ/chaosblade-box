@@ -33,6 +33,7 @@
         <module>chaosblade-box-scenario-api</module>
         <module>chaosblade-box-scenario-blade</module>
         <module>chaosblade-box-scenario-litmus</module>
+        <module>chaosblade-box-scenario-mesh</module>
     </modules>
 
 </project>

@@ -84,6 +84,11 @@
             <artifactId>chaosblade-box-scenario-litmus</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.chaosblade</groupId>
+            <artifactId>chaosblade-box-scenario-mesh</artifactId>
+        </dependency>
+
     </dependencies>
 
 

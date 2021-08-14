@@ -1,0 +1,8 @@
+version: "2.0.0"
+releaseUrl: "https://github.com/chaos-mesh/chaos-mesh/releases/tag/v2.0.0"
+downloadUrl:
+  - linux-x86_64: ""
+    linux-amd64: ""
+changelog: "chaosmesh"
+scenarioFiles:
+  - chaosmesh-action-spec-2.0.0.yaml

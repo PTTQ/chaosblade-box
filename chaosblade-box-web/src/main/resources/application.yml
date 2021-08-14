@@ -57,6 +57,10 @@ chaos:
         #- name: kafka
         #  version: 1.13.0
         #  url: https://hub.litmuschaos.io/api/chaos/1.13.0?file=charts/kafka/experiments.yaml
+      mesh:
+        - name: action
+          version: 2.0.0
+          url: http://open-source-summer.cn-bj.ufileos.com/chaosmesh-action-spec-2.0.0.yaml
   collector:
     enable: false
     type: kube_api

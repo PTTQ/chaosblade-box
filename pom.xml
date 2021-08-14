@@ -179,6 +179,12 @@
 
             <dependency>
                 <groupId>com.alibaba.chaosblade</groupId>
+                <artifactId>chaosblade-box-scenario-mesh</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.chaosblade</groupId>
                 <artifactId>chaosblade-box-scenario-litmus</artifactId>
                 <version>${project.version}</version>
             </dependency>
