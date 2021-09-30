@@ -229,7 +229,7 @@ public class LitmusAttackChaosInvoker extends AbstractLitmusChaosInvoker {
                     requestCommand.getNamespace(),
                     Constants.ENGINE_PLURAL,
                     chaosEngine,
-                    "ture",
+                    "true",
                     null,
                     null,
                     new ApiCallback() {

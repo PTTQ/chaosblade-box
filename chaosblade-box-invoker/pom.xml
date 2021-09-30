@@ -19,6 +19,7 @@
         <module>chaosblade-box-invoker-http</module>
         <module>chaosblade-box-invoker-blade-kubeapi</module>
         <module>chaosblade-box-invoker-litmus-kubeapi</module>
+        <module>chaosblade-box-invoker-mesh-kubeapi</module>
     </modules>
 
 </project>

@@ -52,7 +52,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 
@@ -67,14 +66,8 @@ public class MeshScenarioParser implements ScenarioParser, InitializingBean {
 
     private List<ScenarioOriginal> mesh;
 
-    protected final Map<String, ParamSet> paramsMap = new ConcurrentHashMap<>();
-
     public void setMesh(List<ScenarioOriginal> mesh) {
         this.mesh = mesh;
-    }
-
-    public Map<String, ParamSet> getParamsMap() {
-        return paramsMap;
     }
 
     @Override
@@ -160,7 +153,6 @@ public class MeshScenarioParser implements ScenarioParser, InitializingBean {
                                         .actions(actionSpecBeans)
                                         .build();
                                 modelSpecBeans.add(bean);
-                                paramsMap.put(entry.getKey(), paramSet);
                                 break;
                             }
                         }

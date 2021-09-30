@@ -1,6 +1,6 @@
 logging:
   config: classpath:logback-spring.xml
-  dir:  ${user.home}/${spring.application.name}/logs
+  dir: ${user.home}/${spring.application.name}/logs
   level:
     root: info
     org.springframework: info
@@ -46,6 +46,8 @@ mybatis-plus:
     map-underscore-to-camel-case: true
 
 chaos:
+  namespace:
+    mesh: chaos-mesh-experiments
   scene:
     import: true
     market: #https://chaosblade.oss-cn-hangzhou.aliyuncs.com/platform/market/chaostools/

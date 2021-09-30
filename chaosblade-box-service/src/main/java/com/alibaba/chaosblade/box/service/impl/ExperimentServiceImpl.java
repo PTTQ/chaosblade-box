@@ -219,6 +219,16 @@ public class ExperimentServiceImpl implements ExperimentService {
                     if (StrUtil.isNotBlank(containerNames) && !"null".equals(containerNames)) {
                         createExperimentRequest.getParameters().put("TARGET_CONTAINER", containerNames);
                     }
+                } else if (original.equals(ChaosTools.CHAOS_MESH.getName())) {
+                    createExperimentRequest.getParameters().put("Pods", list.stream().map(DeviceMeta::getPodName).distinct().collect(Collectors.joining(",")));
+                    String containers = list.stream().map(DeviceMeta::getContainerName).distinct().collect(Collectors.joining(","));
+                    if (StrUtil.isNotBlank(containers) && !"null".equals(containers)) {
+                        createExperimentRequest.getParameters().put("Containers", containers);
+                    }
+                    String namespaces = list.stream().map(DeviceMeta::getNamespace).distinct().collect(Collectors.joining(","));
+                    if (StrUtil.isNotBlank(namespaces) && !"null".equals(namespaces)) {
+                        createExperimentRequest.getParameters().put("Namespaces", namespaces);
+                    }
                 }
                 return list;
             case APPLICATION:

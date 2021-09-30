@@ -86,7 +86,7 @@ public class ChaosBladeAttackChaosInvoker extends AbstractChaosBladeChaosInvoker
                     Constants.VERSION,
                     Constants.PLURAL,
                     JsonUtils.writeValueAsBytes(chaosBladeRequest),
-                    "ture",
+                    "true",
                     null,
                     null,
                     new ApiCallback() {

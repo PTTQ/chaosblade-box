@@ -78,6 +78,12 @@
                 <artifactId>chaosblade-box-invoker-litmus-kubeapi</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.chaosblade</groupId>
+                <artifactId>chaosblade-box-invoker-mesh-kubeapi</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!--- chaos-invoker -->
 
             <!-- chaos metric -->
@@ -257,6 +263,18 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-compress</artifactId>
                 <version>1.19</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.typesafe</groupId>
+                <artifactId>config</artifactId>
+                <version>1.4.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.76</version>
             </dependency>
 
         </dependencies>

@@ -19,7 +19,7 @@ flags:
     type: int
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
   - name: delay
     desc: Delay defines the value of I/O chaos action delay. A delay string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix, such as "300ms". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
@@ -46,7 +46,7 @@ flags:
     type: int
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
   - name: errno
     desc: 'Errno defines the error code that returned by I/O action. refer to: https://www-numi.fnal.gov/offline_software/srt_public_context/WebDocs/Errors/unix_system_errors.html'
@@ -73,7 +73,7 @@ flags:
     type: int
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
   - name: attr.ino
     desc: Inode number.
@@ -156,7 +156,7 @@ flags:
     type: int
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
   - name: mistake.filling
     desc: Filling determines what is filled in the miskate data ("zero" or "random").
@@ -179,7 +179,7 @@ flags:
     type: string[]
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
 ---
 action: chaosmesh.dns.random
@@ -190,197 +190,7 @@ flags:
     type: string[]
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
-    type: string
----
-action: chaosmesh.jvm.delay
-flags:
-  - name: target
-    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
-    required: true
-    type: string
-  - name: flags
-    desc: Flags represents the flags of action.
     required: false
-    type: map[string]string
-  - name: matchers
-    desc: Matchers represents the matching rules for the target.
-    required: false
-    type: map[string]string
-  - name: duration
-    desc: Duration represents the duration of the chaos action.
-    required: true
-    type: string
----
-action: chaosmesh.jvm.return
-flags:
-  - name: target
-    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
-    required: true
-    type: string
-  - name: flags
-    desc: Flags represents the flags of action.
-    required: false
-    type: map[string]string
-  - name: matchers
-    desc: Matchers represents the matching rules for the target.
-    required: false
-    type: map[string]string
-  - name: duration
-    desc: Duration represents the duration of the chaos action.
-    required: true
-    type: string
----
-action: chaosmesh.jvm.script
-flags:
-  - name: target
-    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
-    required: true
-    type: string
-  - name: flags
-    desc: Flags represents the flags of action.
-    required: false
-    type: map[string]string
-  - name: matchers
-    desc: Matchers represents the matching rules for the target.
-    required: false
-    type: map[string]string
-  - name: duration
-    desc: Duration represents the duration of the chaos action.
-    required: true
-    type: string
----
-action: chaosmesh.jvm.cfl
-flags:
-  - name: target
-    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
-    required: true
-    type: string
-  - name: flags
-    desc: Flags represents the flags of action.
-    required: false
-    type: map[string]string
-  - name: matchers
-    desc: Matchers represents the matching rules for the target.
-    required: false
-    type: map[string]string
-  - name: duration
-    desc: Duration represents the duration of the chaos action.
-    required: true
-    type: string
----
-action: chaosmesh.jvm.oom
-flags:
-  - name: target
-    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
-    required: true
-    type: string
-  - name: flags
-    desc: Flags represents the flags of action.
-    required: false
-    type: map[string]string
-  - name: matchers
-    desc: Matchers represents the matching rules for the target.
-    required: false
-    type: map[string]string
-  - name: duration
-    desc: Duration represents the duration of the chaos action.
-    required: true
-    type: string
----
-action: chaosmesh.jvm.ccf
-flags:
-  - name: target
-    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
-    required: true
-    type: string
-  - name: flags
-    desc: Flags represents the flags of action.
-    required: false
-    type: map[string]string
-  - name: matchers
-    desc: Matchers represents the matching rules for the target.
-    required: false
-    type: map[string]string
-  - name: duration
-    desc: Duration represents the duration of the chaos action.
-    required: true
-    type: string
----
-action: chaosmesh.jvm.tce
-flags:
-  - name: target
-    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
-    required: true
-    type: string
-  - name: flags
-    desc: Flags represents the flags of action.
-    required: false
-    type: map[string]string
-  - name: matchers
-    desc: Matchers represents the matching rules for the target.
-    required: false
-    type: map[string]string
-  - name: duration
-    desc: Duration represents the duration of the chaos action.
-    required: true
-    type: string
----
-action: chaosmesh.jvm.cpf
-flags:
-  - name: target
-    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
-    required: true
-    type: string
-  - name: flags
-    desc: Flags represents the flags of action.
-    required: false
-    type: map[string]string
-  - name: matchers
-    desc: Matchers represents the matching rules for the target.
-    required: false
-    type: map[string]string
-  - name: duration
-    desc: Duration represents the duration of the chaos action.
-    required: true
-    type: string
----
-action: chaosmesh.jvm.tde
-flags:
-  - name: target
-    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
-    required: true
-    type: string
-  - name: flags
-    desc: Flags represents the flags of action.
-    required: false
-    type: map[string]string
-  - name: matchers
-    desc: Matchers represents the matching rules for the target.
-    required: false
-    type: map[string]string
-  - name: duration
-    desc: Duration represents the duration of the chaos action.
-    required: true
-    type: string
----
-action: chaosmesh.jvm.tpf
-flags:
-  - name: target
-    desc: 'Target defines the specific jvm chaos target. Supported target: servlet;psql;jvm;jedis;http;dubbo;rocketmq;tars;mysql;druid;redisson;rabbitmq;mongodb'
-    required: true
-    type: string
-  - name: flags
-    desc: Flags represents the flags of action.
-    required: false
-    type: map[string]string
-  - name: matchers
-    desc: Matchers represents the matching rules for the target.
-    required: false
-    type: map[string]string
-  - name: duration
-    desc: Duration represents the duration of the chaos action.
-    required: true
     type: string
 ---
 action: chaosmesh.network.delay
@@ -411,7 +221,7 @@ flags:
     type: int
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
 ---
 action: chaosmesh.network.loss
@@ -426,7 +236,7 @@ flags:
     type: string
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
 ---
 action: chaosmesh.network.duplicate
@@ -441,7 +251,7 @@ flags:
     type: string
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
 ---
 action: chaosmesh.network.bandwidth
@@ -468,7 +278,7 @@ flags:
     type: int
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
 ---
 action: chaosmesh.network.corrupt
@@ -483,14 +293,14 @@ flags:
     type: string
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
 ---
 action: chaosmesh.pod.pod-kill
 flags:
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
   - name: gracePeriod
     desc: GracePeriod is used in pod-kill action. It represents the duration in seconds before the pod should be deleted. Value must be non-negative integer. The default value is zero that indicates delete immediately.
@@ -501,21 +311,21 @@ action: chaosmesh.pod.pod-failure
 flags:
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
 ---
 action: chaosmesh.pod.container-kill
 flags:
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
 ---
 action: chaosmesh.stress.cpu
 flags:
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
   - name: stressngStressors
     desc: StressngStressors defines plenty of stressors just like `Stressors` except that it's an experimental feature and more powerful. You can define stressors in `stress-ng` (see also `man stress-ng`) dialect, however not all of the supported stressors are well tested. It maybe retired in later releases. You should always use `Stressors` to define the stressors and use this only when you want more stressors unsupported by `Stressors`. When both `StressngStressors` and `Stressors` are defined, `StressngStressors` wins.
@@ -538,7 +348,7 @@ action: chaosmesh.stress.memory
 flags:
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
   - name: stressngStressors
     desc: StressngStressors defines plenty of stressors just like `Stressors` except that it's an experimental feature and more powerful. You can define stressors in `stress-ng` (see also `man stress-ng`) dialect, however not all of the supported stressors are well tested. It maybe retired in later releases. You should always use `Stressors` to define the stressors and use this only when you want more stressors unsupported by `Stressors`. When both `StressngStressors` and `Stressors` are defined, `StressngStressors` wins.
@@ -561,7 +371,7 @@ action: chaosmesh.time.shift
 flags:
   - name: duration
     desc: Duration represents the duration of the chaos action.
-    required: true
+    required: false
     type: string
   - name: timeOffset
     desc: TimeOffset defines the delta time of injected program. It's a possibly signed sequence of decimal numbers, such as "300ms", "-1.5h" or "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".

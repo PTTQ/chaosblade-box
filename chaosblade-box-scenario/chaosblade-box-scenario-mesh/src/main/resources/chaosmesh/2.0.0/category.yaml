@@ -18,26 +18,6 @@
   - "system_network"
 "chaosmesh.pod-dns.random":
   - "system_network"
-"chaosmesh.pod-jvm.delay":
-  - "java_delay"
-"chaosmesh.pod-jvm.return":
-  - "java_data_tamper"
-"chaosmesh.pod-jvm.script":
-  - "java_custom"
-"chaosmesh.pod-jvm.cfl":
-  - "java_resource_cpu"
-"chaosmesh.pod-jvm.oom":
-  - "java_resource_mem"
-"chaosmesh.pod-jvm.ccf":
-  - "java_resource_mem"
-"chaosmesh.pod-jvm.tce":
-  - "java_exception"
-"chaosmesh.pod-jvm.cpf":
-  - "java_resource"
-"chaosmesh.pod-jvm.tde":
-  - "java_exception"
-"chaosmesh.pod-jvm.tpf":
-  - "java_resource"
 "chaosmesh.pod-network.delay":
   - "system_network"
 "chaosmesh.pod-network.loss":

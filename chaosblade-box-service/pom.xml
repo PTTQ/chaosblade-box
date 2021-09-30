@@ -36,6 +36,11 @@
 
         <dependency>
             <groupId>com.alibaba.chaosblade</groupId>
+            <artifactId>chaosblade-box-invoker-mesh-kubeapi</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.chaosblade</groupId>
             <artifactId>chaosblade-box-metric-aliyun</artifactId>
         </dependency>
 
